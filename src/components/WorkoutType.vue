@@ -28,10 +28,10 @@
 <style lang="css" scoped>
 
 .modal-wrapper {
-    min-width: 99%;
-    min-height: 99%;
+    min-width: 100%;
+    min-height: 100%;
     position: absolute;
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(0, 0, 0, 0.95);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -76,6 +76,7 @@ h2 {
     justify-content: center;
     align-items: center;
     transition: background-color 0.2s ease-in-out;
+    user-select: none;
 }
 
 .selection-box:hover {
