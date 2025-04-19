@@ -15,12 +15,13 @@ import Navbar from '@/components/Navbar.vue';
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  font-family: 'Kanit', sans-serif;
 }
 
 body {
-  font-family: 'Kanit', sans-serif;
   background-color: #121212;
 }
+
 
 h1, h2, h3, h4, h5, h6 {
   color: #E0E0E0;

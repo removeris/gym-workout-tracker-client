@@ -3,26 +3,36 @@
         <div class="modal-container">
             <h2>WORKOUT TYPE</h2>
             <div class="selection-container">
-                <div class="selection-box">
+                <div class="selection-box" @click="select('CHEST + SHOULDERS')">
                     CHEST + SHOULDERS
                 </div>
-                <div class="selection-box">
+                <div class="selection-box" @click="select('ARMS')">
                     ARMS
                 </div>
-                <div class="selection-box">
+                <div class="selection-box" @click="select('BACK')">
                     BACK
                 </div>
-                <div class="selection-box">
+                <div class="selection-box" @click="select('LEGS')">
                     LEGS
                 </div>
             </div>
         </div>
-        <i class="fa-solid fa-xmark"></i>
+        <RouterLink to="/">
+            <i class="fa-solid fa-xmark"></i>
+        </RouterLink>
     </div>
 </template>
 
 <script setup lang="ts">
+import { defineEmits } from 'vue';
 
+const emit = defineEmits<{
+    (event: 'selectedType', payload: string) : void
+}>();
+
+const select = (value: string) => {
+    emit('selectedType', value);
+}
 </script>
 
 <style lang="css" scoped>
@@ -31,6 +41,8 @@
     min-width: 100%;
     min-height: 100%;
     position: absolute;
+    top: 0;
+    left: 0;
     background-color: rgba(0, 0, 0, 0.95);
     display: flex;
     justify-content: center;
@@ -84,7 +96,7 @@ h2 {
     cursor: pointer;
 }
 
-.fa-xmark {
+a {
     position: absolute;
     top: 30px;
     right: 30px;
