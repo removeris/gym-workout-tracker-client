@@ -4,7 +4,7 @@
         <Transition name="grow">
             <div v-show="showSelection" class="exercise">
                 <ul>
-                    <li v-for="(elem, index) in exercises">{{ elem }}</li>
+                    <li v-for="(elem, index) in exercises" @click="select(elem)">{{ elem }}</li>
                 </ul>
             </div>
         </Transition>
@@ -12,11 +12,20 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
+import { ref, defineEmits } from 'vue';
 
 const props = defineProps({
     exercises: Array<string>,
 })
+
+const emit = defineEmits<{
+    (event: 'selectedExercise', payload: string) : void
+}>();
+
+const select = (value: string) => {
+    emit('selectedExercise', value);
+    showSelection.value = false;
+}
 
 const showSelection = ref(false);
 
